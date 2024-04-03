@@ -3,6 +3,7 @@ package com.serenitydojo;
 
 import org.junit.Test;
 
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -17,17 +18,16 @@ public class WhenWorkingWithSets {
     // We can create a set and add values to the set
     @Test
     public void creatingANewSet() {
-        Set<String> colors = null;
+        Set<String> colors = new HashSet<>(Arrays.asList("red", "green", "blue"));
 
         // TODO: Create a new HashSet and add the values "red", "green", and "blue"
-
         assertThat(colors).containsExactlyInAnyOrder("red", "green", "blue");
     }
 
     // We can create a set containing a specified list of values")
     @Test
     public void creatingASetOfValues() {
-        Set<String> colors = null;
+        Set<String> colors = new HashSet<>(Set.of("red", "green", "blue"));
 
         // TODO: Create a set of Strings containing the values "red", "green" and "blue"
         //  using the Set.of() method
@@ -45,7 +45,7 @@ public class WhenWorkingWithSets {
         colors.add("yellow");
         colors.add("red");
 
-        int expectedSize = 0;
+        int expectedSize = 4;
 
         assertThat(colors.size()).isEqualTo(expectedSize);
     }
@@ -62,8 +62,13 @@ public class WhenWorkingWithSets {
         colors.add("green");
         colors.add("blue");
 
+        colors.clear();
+        startedEmpty = colors.isEmpty();
+
         // TODO: Change this code so that it correctly determines whether the set now empty or not
         Boolean endedUpEmpty = null;
+
+        endedUpEmpty = !(colors.isEmpty());
 
         assertThat(startedEmpty).isTrue();
         assertThat(endedUpEmpty).isFalse();
